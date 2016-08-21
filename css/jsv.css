@@ -1,0 +1,50 @@
+path.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+}
+
+ .node {
+    cursor: pointer;
+}
+.overlay {
+    background-color: inherit;
+}
+.node circle, #legend circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+.node circle.collapsed, #legend circle.collapsed {
+    fill: lightsteelblue;
+}
+.node .abstract, #legend .abstract {
+    font-style: italic;
+}
+.node.label {
+    cursor: default;
+}
+.node.label circle, .node.label circle:hover {
+    stroke: #ccc;
+    stroke-width: 1.5px;
+}
+.node text {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+}
+.node text:hover {
+    text-decoration: underline;
+}
+.node.label text:hover {
+    text-decoration: none;
+}
+.node.focus, #legend .focus {
+    font-weight: bold;
+}
+.node.focus circle, #legend .focus circle {
+    stroke: #0ecc43;
+    stroke-width: 2px;
+}
+.node circle:hover, .focus circle:hover {
+    stroke-width: 3px;
+}
