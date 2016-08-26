@@ -28,8 +28,7 @@
         global.jsonEditor.setTheme("ace/theme/chrome");
         global.jsonEditor.getSession().setMode("ace/mode/json");
         global.jsonEditor.setFontSize(14);
-        global.jsonEditor.session.setOption("useWorker", false);
-        
+
     }
     
     function setupEvents() {
