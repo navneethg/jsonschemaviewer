@@ -36,10 +36,7 @@
         
         $('#sourceButton').click(sourceView);
         $('#visualizeButton').click(visualizeView);
-        
-        global.jsonEditor.on('change', function() {
-            global.rootSchema = global.jsonEditor.getValue(); 
-        });
+    
     }
     
     function resetToolbar() {
@@ -65,12 +62,12 @@
         
         $('#main-body').empty();
         
-        var schema = global.rootSchema;
+        var schema = {};
         
         try {
-            schema = JSON.parse(global.rootSchema);
+            schema = JSON.parse(global.jsonEditor.getValue());
         } catch (e) {
-            //ignore.
+            alert(e.toString());
         }
         
         $RefParser.dereference(schema).then(function(resolvedSchema) {
