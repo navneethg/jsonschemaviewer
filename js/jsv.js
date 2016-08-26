@@ -938,6 +938,7 @@ if (typeof JSV === 'undefined') {
          * Toggle children on node click.
          */
         click: function (d) {
+            console.log(d);
             if(!JSV.labels[d.name]) {
                 if (d3.event && d3.event.defaultPrevented) {return;} // click suppressed
                 d = JSV.toggleChildren(d);
