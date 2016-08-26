@@ -761,6 +761,8 @@ if (typeof JSV === 'undefined') {
 
             if(node.type === 'object' && node.name !== 'item') {
                 node.name += '{ }';
+            } else {
+                node.name += ':' + node.type;
             }
 
             if(props || items || all) {
