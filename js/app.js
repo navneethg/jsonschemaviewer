@@ -54,6 +54,8 @@
     
     function visualizeView() {
         
+        mixpanel.track('visualize');
+        
         resetToolbar();
         $('#visualizeButton').attr("class", "btn btn-primary active");
         
