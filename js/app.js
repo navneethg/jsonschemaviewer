@@ -55,10 +55,6 @@
     
     function visualizeView() {
         
-        mixpanel.track('visualize');
-        
-        resetToolbar();
-        
         var schema = {};
         
         try {
@@ -69,6 +65,8 @@
         }
         
         NProgress.start();
+        
+        resetToolbar();
         
         $('#visualizeButton').attr("class", "btn btn-primary active");
         
@@ -88,6 +86,7 @@
                 $('#jsv-tree').css('width', '100%');
                 JSV.resizeViewer();
             });
+            mixpanel.track('visualize');
             NProgress.done();
         }).catch(function(err) {
             alert(err);
