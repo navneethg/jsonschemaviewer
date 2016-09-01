@@ -45,6 +45,7 @@
     function sourceView() {
         
         resetToolbar();
+        
         $('#sourceButton').attr("class", "btn btn-primary active");
         
         $('#editor').css('display', 'block');
@@ -57,11 +58,6 @@
         mixpanel.track('visualize');
         
         resetToolbar();
-        $('#visualizeButton').attr("class", "btn btn-primary active");
-        
-        $('#editor').css('display', 'none');
-        
-        $('#main-body').empty();
         
         var schema = {};
         
@@ -69,7 +65,16 @@
             schema = JSON.parse(global.jsonEditor.getValue());
         } catch (e) {
             alert(e.toString());
+            return;
         }
+        
+        NProgress.start();
+        
+        $('#visualizeButton').attr("class", "btn btn-primary active");
+        
+        $('#editor').css('display', 'none');
+        
+        $('#main-body').empty();
         
         $RefParser.dereference(schema).then(function(resolvedSchema) {
               //Prevent circular references.
@@ -83,8 +88,10 @@
                 $('#jsv-tree').css('width', '100%');
                 JSV.resizeViewer();
             });
+            NProgress.done();
         }).catch(function(err) {
             alert(err);
+            NProgress.done();
         });
         
     }
