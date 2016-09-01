@@ -86,7 +86,6 @@
                 $('#jsv-tree').css('width', '100%');
                 JSV.resizeViewer();
             });
-            mixpanel.track('visualize');
             NProgress.done();
         }).catch(function(err) {
             alert(err);
