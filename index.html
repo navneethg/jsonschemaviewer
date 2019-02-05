@@ -50,6 +50,15 @@
     	},
     	"required": ["firstName", "lastName"]
     }</div>
+
+    <script> (function(){
+        var params = new URLSearchParams(window.location.search);
+        if(params.has("schema"))
+        fetch(params.get("schema"))
+            .then((response) => response.text())
+            .then((json) => { jsonEditor.setValue(json);})
+            .catch((error) => { console.warn(error);});
+     })(); </script>
     
     <!-- JSV -->
     <div id="main-body"></div>
