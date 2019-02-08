@@ -50,6 +50,20 @@
     	},
     	"required": ["firstName", "lastName"]
     }</div>
+
+    <!-- https://github.com/OwenMelbz/whendefined  -->
+    <script type="text/javascript">
+        (function(){window.whenDefined=function(a,b,c){a[b]?c():Object.defineProperty(a,b,{configurable:!0,enumerable:!0,writeable:!0,get:function(){return this["_"+b]},set:function(a){this["_"+b]=a,c()}})}}).call(this);
+    </script>
+    <script> 
+    whenDefined(window, 'jsonEditor', function() {
+        var params = new URLSearchParams(window.location.search);
+        if(params.has("schema"))
+        fetch(params.get("schema"))
+            .then((response) => response.text())
+            .then((json) => { jsonEditor.setValue(json);})
+            .catch((error) => { console.warn(error);});
+     }); </script>
     
     <!-- JSV -->
     <div id="main-body"></div>
